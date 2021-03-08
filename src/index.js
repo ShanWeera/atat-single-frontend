@@ -6,7 +6,10 @@ import Results from "./componants/views/results";
 import Navigation from "./componants/presentational/navigation/navigation";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom"
 import {Provider} from "react-redux"
-import store from "../src/reducers/isResults"
+import allReducers from "./reducers"
+import { createStore } from  "redux"
+
+const store = createStore(allReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 ReactDOM.render(
   <React.StrictMode>

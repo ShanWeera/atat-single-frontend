@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import {is_results} from "../../../actions/isResults"
 import {useDispatch} from "react-redux"
 import Compare from "./compare";
 
@@ -7,7 +6,8 @@ export default function Results(props) {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(is_results());
+        dispatch({type: 'IS_RESULTS'}, []);
+        dispatch({type: 'RESULT_ID', id: props.match.params.id}, []);
     })
 
     let querystring = props.location.search

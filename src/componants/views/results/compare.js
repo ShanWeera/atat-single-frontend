@@ -1,6 +1,4 @@
-import Navigation from "../../presentational/navigation/navigation";
 import CollapsibleContainer from "../../presentational/collapsible_container";
-
 
 export default function Compare() {
     return [
