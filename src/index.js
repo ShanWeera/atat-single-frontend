@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 import {Provider} from "react-redux"
 import allReducers from "./reducers"
 import { createStore } from  "redux"
+import "@blueprintjs/core/lib/css/blueprint.css";
 
 const store = createStore(allReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 

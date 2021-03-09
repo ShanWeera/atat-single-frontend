@@ -1,18 +1,14 @@
 import CollapsibleContainer from "../../presentational/collapsible_container";
+import PositionDropdown from "../../container/position_dropdown";
 
 export default function Compare() {
     return [
         <>
             <div className={"container-fluid pt-2"}>
                 <div className={"row"}>
-                    <div className={"col-4"}>
+                    <div className={"col-lg-4 col-sm-12"}>
                         <CollapsibleContainer title={"Positions"}>
-                            <input type="text" name="product" list="productName"/>
-                            <datalist id="productName">
-                                <option value="Pen">Pen</option>
-                                <option value="Pencil">Pencil</option>
-                                <option value="Paper">Paper</option>
-                            </datalist>
+                            <PositionDropdown />
                         </CollapsibleContainer>
                     </div>
                 </div>
