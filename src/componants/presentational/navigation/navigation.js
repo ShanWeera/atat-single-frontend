@@ -16,10 +16,12 @@ const useStyles = makeStyles((theme) => ({
     },
     alignment: {
         [theme.breakpoints.down('sm')]: {
-            textAlign: "center"
+            textAlign: "center",
+            padding: "1%"
         },
         [theme.breakpoints.up('xs')]: {
-            align: "center"
+            align: "center",
+            padding: "1%"
         }
     }
 }));
@@ -40,8 +42,10 @@ function Navigation() {
                             </Button>
                         </Grid>
                         <Grid item sm={12} xs={12} lg={4} align={"center"} className={classes.alignment}>
-
+                            {isResults ? <ResultControls /> : null}
                         </Grid>
+
+
                         <Grid item m={12} xs={12} lg={4} align={"right"} className={classes.alignment}>
                             <Typography variant={"button"}>Antigenic Transmissibility Analysis Tool</Typography>
                         </Grid>
