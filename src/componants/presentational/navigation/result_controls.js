@@ -17,9 +17,8 @@ function ResultControls() {
     return [
         <Router>
             <ButtonGroup size={"medium"} variant={"text"} fullWidth={true}>
-                <Button color={"primary"} className={classes.button}>Source</Button>
-                <Button color={"secondary"} className={classes.button}>Compare</Button>
-                <Button color={"primary"} className={classes.button}>Reservoir</Button>
+                <Button color={"primary"} className={classes.button}>Compare</Button>
+                <Button color={"secondary"} className={classes.button}>Motif Switches</Button>
             </ButtonGroup>
         </Router>
     ]

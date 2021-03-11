@@ -1,11 +1,10 @@
-import Navbar from "react-bootstrap/Navbar"
-import Image from "react-bootstrap/Image"
+import { useSelector } from "react-redux"
+
 import ResultControls from "./result_controls";
 import logo from "../../../assets/images/logo.png"
-import {useSelector} from "react-redux"
 
-import { AppBar, Grid , Toolbar, Button, Avatar, Typography, Container } from "@material-ui/core"
-import { withStyles, makeStyles } from "@material-ui/core/styles"
+import { AppBar, Grid , Toolbar, Button, Avatar, Typography } from "@material-ui/core"
+import { makeStyles } from "@material-ui/core/styles"
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -44,8 +43,6 @@ function Navigation() {
                         <Grid item sm={12} xs={12} lg={4} align={"center"} className={classes.alignment}>
                             {isResults ? <ResultControls /> : null}
                         </Grid>
-
-
                         <Grid item m={12} xs={12} lg={4} align={"right"} className={classes.alignment}>
                             <Typography variant={"button"}>Antigenic Transmissibility Analysis Tool</Typography>
                         </Grid>

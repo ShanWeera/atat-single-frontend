@@ -1,14 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
-import 'bootstrap/dist/css/bootstrap.min.css'
 import Results from "./componants/views/results";
 import Navigation from "./componants/presentational/navigation/navigation";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom"
 import {Provider} from "react-redux"
 import allReducers from "./reducers"
 import { createStore } from  "redux"
-import "@blueprintjs/core/lib/css/blueprint.css";
 
 const store = createStore(allReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
