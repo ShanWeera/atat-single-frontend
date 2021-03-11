@@ -4,17 +4,10 @@ import {useSelector} from "react-redux";
 import DataTable from "react-data-table-component";
 import { Checkbox } from "@material-ui/core";
 import { ArrowDownward } from "@material-ui/icons";
+
 import MUIDataTable from "mui-datatables";
 
 const columns = [
-    {
-        name: "accession",
-        label: "Accession",
-        options: {
-            filter: true,
-            sort: true,
-        }
-    },
     {
         name: "sequence",
         label: "Sequence",
