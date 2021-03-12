@@ -1,4 +1,4 @@
-const setPositionReducer = (state = 0, action) => {
+const setPositionReducer = (state = 1, action) => {
     if (action.type === 'POSITION_CHANGE') {
         return action.position
     }
