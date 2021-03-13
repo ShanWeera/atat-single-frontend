@@ -24,7 +24,9 @@
     "@material-ui/icons": "^4.11.2",
     "react-data-table-component": "^6.11.7",
     "styled-components": "^5.2.1",
-    "mui-datatables": "^3.7.6"
+    "mui-datatables": "^3.7.6",
+    "highcharts": "^9.0.1",
+    "highcharts-react-official": "^3.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

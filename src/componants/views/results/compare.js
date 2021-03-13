@@ -3,6 +3,8 @@ import SourceVariants from "../../container/source_variants";
 import { Container, Grid, Card, CardContent, Typography, CardActions, Button }  from "@material-ui/core"
 import {makeStyles} from "@material-ui/core/styles";
 
+import VariantAnalysis from "../../container/variant_analysis";
+
 const useStyles = makeStyles((theme) => ({
     container: {
         paddingTop: '1.5%'
@@ -49,24 +51,7 @@ export default function Compare() {
                         </Card>
                     </Grid>
                 </Grid>
-                <Grid container spacing={2}>
-                    <Grid item lg={6}>
-                        <Card elevation={2}>
-                            <CardContent>
-                                <Typography variant="h5" component="h2" color={"primary"}>
-                                    SOURCE VARIANTS
-                                </Typography>
-                                <Typography color={"textSecondary"}>
-                                    Variants seen in the source sequences at the selected k-mer position.
-                                </Typography>
-                                <SourceVariants />
-                            </CardContent>
-                            <CardActions>
-                                <Button size="small" fullWidth>What is this?</Button>
-                            </CardActions>
-                        </Card>
-                    </Grid>
-                </Grid>
+                <VariantAnalysis context={'source'}/>
             </Container>
         </>
     ]
