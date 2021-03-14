@@ -5,7 +5,7 @@ import setPositionReducer from "./setPositionReducer";
 
 const allReducers = combineReducers({
     isResults: isResultsReducer,
-    resultId: setResultsReducer,
+    jobID: setResultsReducer,
     position: setPositionReducer
 })
 

@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux"
 
-import ResultControls from "./result_controls";
-import logo from "../../../assets/images/logo.png"
-
 import { AppBar, Grid , Toolbar, Button, Avatar, Typography } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
+
+import ResultControls from "./Controls";
+import logo from "../../assets/images/logo.png"
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-function Navigation() {
+function NavigationAppBar() {
     const isResults = useSelector(state => state.isResults)
     const classes = useStyles();
 
@@ -53,4 +53,4 @@ function Navigation() {
     ]
 }
 
-export default Navigation
+export default NavigationAppBar

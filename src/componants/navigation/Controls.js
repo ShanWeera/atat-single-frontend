@@ -1,9 +1,7 @@
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
-import { faMale, faCompressAlt, faPaw } from '@fortawesome/free-solid-svg-icons'
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { ButtonGroup, Button } from "@material-ui/core"
+import { BrowserRouter as Router } from "react-router-dom";
 
-import { withStyles, makeStyles } from "@material-ui/core/styles"
+import { makeStyles } from "@material-ui/core/styles"
+import { ButtonGroup, Button } from "@material-ui/core"
 
 const useStyles = makeStyles((theme)  => ({
     button: {
@@ -11,7 +9,7 @@ const useStyles = makeStyles((theme)  => ({
     }
 }))
 
-function ResultControls() {
+function NavigationControls() {
     const classes = useStyles()
 
     return [
@@ -24,4 +22,4 @@ function ResultControls() {
     ]
 }
 
-export default ResultControls
+export default NavigationControls

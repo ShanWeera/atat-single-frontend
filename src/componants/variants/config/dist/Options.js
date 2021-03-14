@@ -1,8 +1,4 @@
-import React from "react"
-import Highcharts from "highcharts/highcharts"
-import HighchartsReact from "highcharts-react-official";
-
-const options = {
+const VariantsConfigDistOptions = {
     chart: {
         type: "pie",
         cursor: "pointer"
@@ -30,21 +26,7 @@ const options = {
                 format: '<b>{point.name}</b>: {point.percentage:.1f} %'
             }
         }
-    },
-    series: [
-        {
-            name: "Countries",
-            data:  [{
-            name: 'Chrome',
-            y: 100,
-            sliced: true,
-            selected: true
-}]
-        }
-    ]
+    }
 }
-export default function VariantDistribution(props) {
-    return [
-        <HighchartsReact highcharts={Highcharts} options={options} />
-    ]
-}
+
+export default VariantsConfigDistOptions

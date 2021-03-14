@@ -1,9 +1,8 @@
-import PositionDropdown from "../../container/position_dropdown";
-import SourceVariants from "../../container/source_variants";
 import { Container, Grid, Card, CardContent, Typography, CardActions, Button }  from "@material-ui/core"
-import {makeStyles} from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 
-import VariantAnalysis from "../../container/variant_analysis";
+import VariantAnalysis from "../../variants/Analysis";
+import PositionDropdown from "../../position/Dropdown";
 
 const useStyles = makeStyles((theme) => ({
     container: {
@@ -11,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function Compare() {
+export default function ViewResultsCompare() {
     const classes = useStyles();
 
     return [
@@ -34,24 +33,12 @@ export default function Compare() {
                             </CardActions>
                         </Card>
                     </Grid>
-                    <Grid item lg={8} sm={12} xs={12}>
-                        <Card elevation={2}>
-                            <CardContent>
-                                <Typography variant="h5" component="h2" color={"primary"}>
-                                    MOTIF SWITCHES
-                                </Typography>
-                                <Typography color={"textSecondary"}>
-                                    Choose the KMER position to view
-                                </Typography>
-                                <PositionDropdown />
-                            </CardContent>
-                            <CardActions>
-                                <Button size="small" fullWidth>What is this?</Button>
-                            </CardActions>
-                        </Card>
+                </Grid>
+                <Grid container spacing={2}>
+                    <Grid container item lg={6} sm={12} xs={12} direction={"column"} spacing={1}>
+                        <VariantAnalysis context={'source'} />
                     </Grid>
                 </Grid>
-                <VariantAnalysis context={'source'}/>
             </Container>
         </>
     ]

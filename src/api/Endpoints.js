@@ -1,6 +1,6 @@
-import {get, post} from "./base"
+import { get, post } from "./Base"
 
-const ATAT = {
+const ApiEndpoints = {
     index: (id) => get(`/info/${id}`),
     results: (id) => get(`/results/${id}`),
     groupedPosition: (id, position) => get(`/results/${id}/position/grouped/${position}`),
@@ -9,4 +9,4 @@ const ATAT = {
     positionCount: (id) => get(`/results/${id}/position/count`)
 }
 
-export default ATAT
+export default ApiEndpoints

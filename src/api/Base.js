@@ -1,10 +1,7 @@
 import axios from "axios"
 
-
 const client = axios.create({
     baseURL: 'http://localhost:5000'
 })
 
-const {get, post, put, delete: destroy} = client
-
-export {get, post}
+export const { get, post } = client

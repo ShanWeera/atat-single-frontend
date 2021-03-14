@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import {useDispatch} from "react-redux"
-import Compare from "./compare";
+import Compare from "./Compare";
 require("bootstrap/dist/css/bootstrap.min.css")
 
 export default function Results(props) {

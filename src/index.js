@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
-import Results from "./componants/views/results";
-import Navigation from "./componants/presentational/navigation/navigation";
+import Results from "./componants/view/results";
+import Navigation from "./componants/navigation/AppBar";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom"
 import {Provider} from "react-redux"
 import allReducers from "./reducers"
