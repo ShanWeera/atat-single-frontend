@@ -7,15 +7,24 @@ import VariantsConfigDistOptions from "./config/dist/Options";
 import VariantsConfigDistGetData from "./config/dist/GetData";
 
 export default function VariantsDistribution(props) {
+    const [name, setName] = useState('Series')
+    const [data, setData] = useState([])
+
+    useEffect(() => {
+        setName(props.name)
+        setData(props.data)
+        console.log(props.data, 'KOPLA')
+    }, [data, name, props.data, props.name])
+
 
     let series = {
-                name: props.name.toString(),
+                name: name,
                 colorByPoint: true,
-                data: VariantsConfigDistGetData(props.data)
+                data: VariantsConfigDistGetData(data)
             }
 
     let options = {...VariantsConfigDistOptions, series}
-    console.log(options, "loollllllllllllllll")
+    // console.log(options, "loollllllllllllllll")
     return [
         <HighchartsReact highcharts={Highcharts} options={options} />
     ]

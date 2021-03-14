@@ -7,12 +7,15 @@ import VariantsConfigTableOptions from "./config/table/Options";
 import VariantsConfigDetailsColumns from "./config/details/Columns";
 import VariantsConfigCheckbox from "./config/Checkbox";
 
+const options = Object.assign({}, VariantsConfigTableOptions)
+options.selectableRows = 'none'
+
 export default function VariantsDetails(props) {
     return [
         <>
             <MUIDataTable
                 columns={VariantsConfigDetailsColumns}
-                options={VariantsConfigTableOptions}
+                options={options}
                 data={VariantsConfigDetailsGetData(props.selectedVariant)}
                 components={{
                     Checkbox: VariantsConfigCheckbox

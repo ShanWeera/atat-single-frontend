@@ -34,9 +34,16 @@ export default function ViewResultsCompare() {
                         </Card>
                     </Grid>
                 </Grid>
-                <Grid container spacing={2}>
-                    <Grid container item lg={6} sm={12} xs={12} direction={"column"} spacing={1}>
-                        <VariantAnalysis context={'source'} />
+                <Grid container direction={"row"} spacing={2}>
+                    <Grid item lg={6}>
+                        <Grid container direction={"column"} spacing={1}>
+                            <VariantAnalysis context={'source'} />
+                        </Grid>
+                    </Grid>
+                    <Grid item lg={6}>
+                        <Grid container direction={"column"} spacing={1}>
+                            <VariantAnalysis context={'reservoir'} />
+                        </Grid>
                     </Grid>
                 </Grid>
             </Container>

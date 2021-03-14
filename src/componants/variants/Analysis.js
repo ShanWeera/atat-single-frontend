@@ -74,8 +74,9 @@ export default function VariantAnalysis(props) {
                 <CardContent>
                     <Typography className={classes.header} variant="h5" component="h2" color={"primary"}>{context} Variant Distribution</Typography>
                     <Typography color={"textSecondary"}>Countries from which the selected variant originated from.</Typography>
-                    {console.log(selectedVariant, "jajsdjasdjasd")}
-                    <VariantsDistribution name={"Counties"} data={selectedVariant.country}/>
+                    <VariantsDistribution name={context === 'source' ? 'Countries' : 'Sources'}
+                                          data={selectedVariant === undefined ? [] : (context === 'source' ?
+                                              selectedVariant.country : selectedVariant.source)} />
                 </CardContent>
                 <CardActions>
                     <Button size="small" fullWidth>What is this?</Button>
