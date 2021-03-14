@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 import { Grid, Card, CardContent, CardActions, Typography, Button } from "@material-ui/core"
+import { makeStyles } from "@material-ui/core/styles";
 
 import ApiEndpoints from "../../api/Endpoints";
 import VariantsOverview from "./Overview";
 import VariantDetails from "./Details";
-import { makeStyles } from "@material-ui/core/styles";
 import VariantsDistribution from "./Distribution";
+import ViewResultsFloatButton from "../view/results/FloatButton";
 
 const useStyles = makeStyles((theme) => ({
     header: {
@@ -43,6 +44,7 @@ export default function VariantAnalysis(props) {
     }, [context, jobid, props.context, selected_position])
 
     return [
+        <ViewResultsFloatButton />,
         <Grid item lg={12} xm={12} xs={12}>
             <Card elevation={2}>
                 <CardContent>
@@ -73,7 +75,7 @@ export default function VariantAnalysis(props) {
             <Card elevation={2}>
                 <CardContent>
                     <Typography className={classes.header} variant="h5" component="h2" color={"primary"}>{context} Variant Distribution</Typography>
-                    <Typography color={"textSecondary"}>Countries from which the selected variant originated from.</Typography>
+                    <Typography color={"textSecondary"}>{context === 'source' ? 'Countries' : 'Sources'} from which the selected variant originated from.</Typography>
                     <VariantsDistribution name={context === 'source' ? 'Countries' : 'Sources'}
                                           data={selectedVariant === undefined ? [] : (context === 'source' ?
                                               selectedVariant.country : selectedVariant.source)} />

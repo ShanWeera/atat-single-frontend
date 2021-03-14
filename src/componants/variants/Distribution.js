@@ -13,9 +13,7 @@ export default function VariantsDistribution(props) {
     useEffect(() => {
         setName(props.name)
         setData(props.data)
-        console.log(props.data, 'KOPLA')
     }, [data, name, props.data, props.name])
-
 
     let series = {
                 name: name,
@@ -24,7 +22,7 @@ export default function VariantsDistribution(props) {
             }
 
     let options = {...VariantsConfigDistOptions, series}
-    // console.log(options, "loollllllllllllllll")
+
     return [
         <HighchartsReact highcharts={Highcharts} options={options} />
     ]
