@@ -6,6 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import ApiEndpoints from "../../../api/Endpoints";
 import MotifsSwitchesTable from "../../motifs/SwitchesTable";
+import MotifsVariant from "../../motifs/Variant";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -35,7 +36,7 @@ export default function ViewResultsMotifs(props) {
     return [
         <>
             <Container maxWidth={false} className={classes.container}>
-                <Grid container>
+                <Grid container spacing={2}>
                     <Grid item lg={12} sm={12} xs={12}>
                         <Card elevation={2}>
                             <CardContent>
@@ -51,6 +52,18 @@ export default function ViewResultsMotifs(props) {
                                 <Button size="small" fullWidth>What is this?</Button>
                             </CardActions>
                         </Card>
+                    </Grid>
+                </Grid>
+                <Grid container direction={"row"} spacing={2}>
+                    <Grid item lg={6}>
+                        <Grid container direction={"column"} spacing={1}>
+                            <MotifsVariant context={"source"} selectedSwitch={selectedSwitch} />
+                        </Grid>
+                    </Grid>
+                    <Grid item lg={6}>
+                        <Grid container direction={"column"} spacing={1}>
+                            <MotifsVariant context={"reservoir"} selectedSwitch={selectedSwitch} />
+                        </Grid>
                     </Grid>
                 </Grid>
             </Container>
