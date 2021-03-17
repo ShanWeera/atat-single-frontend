@@ -1,8 +1,12 @@
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+
 import { Container, Grid, Card, CardContent, Typography, CardActions, Button }  from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles";
 
 import VariantAnalysis from "../../variants/Analysis";
 import PositionDropdown from "../../position/Dropdown";
+
 
 const useStyles = makeStyles((theme) => ({
     container: {
@@ -10,7 +14,15 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function ViewResultsCompare() {
+export default function ViewResultsCompare(props) {
+    const dispatch = useDispatch();
+    const jobid = props.match.params.id
+
+    useEffect(() => {
+        dispatch({type: 'IS_RESULTS'}, []);
+        dispatch({type: 'RESULT_ID', id: jobid}, []);
+    }, [jobid, dispatch])
+
     const classes = useStyles();
 
     return [

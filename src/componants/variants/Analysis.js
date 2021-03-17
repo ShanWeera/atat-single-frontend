@@ -31,9 +31,9 @@ export default function VariantAnalysis(props) {
         setContext(props.context)
 
         if (context === 'source') {
-            client = ApiEndpoints.sourcePosition
+            client = ApiEndpoints.sourcePositionVariants
         } else {
-            client = ApiEndpoints.reservoirPosition
+            client = ApiEndpoints.reservoirPositionVariants
         }
 
         client(jobid, selected_position).then((response) => {
