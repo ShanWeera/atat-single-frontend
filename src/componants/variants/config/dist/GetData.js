@@ -6,18 +6,19 @@ const VariantsConfigDistGetData = (data: Array) => {
     let allItemsCount = data.length
     let chartData = []
 
-    data.forEach((item, index) => {
-        let currentItemCount = data.reduce((count, arrItem) => (arrItem === item ? count + 1 : count), 0)
-        let percentage = (currentItemCount / allItemsCount) * 100
+    const uniqueItems = [...new Set(data)]
+
+    uniqueItems.forEach(currItem => {
+        const numItems = data.filter(item => item === currItem)
 
         chartData.push(
             {
-                name: item,
-                y: percentage
+                name: currItem,
+                y: numItems.length * 100 / allItemsCount
             }
         )
-    }
-    )
+    })
+
     return chartData
 }
 

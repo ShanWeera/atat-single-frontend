@@ -1,4 +1,4 @@
-import { get, post } from './Base';
+import { get } from './Base';
 
 const ApiEndpoints = {
   index: (id) => get(`/info/${id}`),
