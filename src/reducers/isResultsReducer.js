@@ -1,9 +1,9 @@
 const isResultsReducer = (state = false, action) => {
-    if (action.type === 'IS_RESULTS') {
-        return true
-    }
+  if (action.type === 'IS_RESULTS') {
+    return true;
+  }
 
-    return state
+  return state;
 };
 
-export default isResultsReducer
+export default isResultsReducer;
