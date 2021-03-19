@@ -11,6 +11,7 @@ import VariantsOverview from './Overview';
 import VariantDetails from './Details';
 import VariantsDistribution from './Distribution';
 import ViewResultsFloatButton from '../view/results/FloatButton';
+import TutorialDialog from "../tutorial/Dialog";
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -57,6 +58,7 @@ export default function VariantAnalysis(props) {
           </Typography>
           <Typography color="textSecondary">
             Variants seen in the
+            {' '}
             {context}
             {' '}
             sequences at the selected k-mer
@@ -105,7 +107,7 @@ export default function VariantAnalysis(props) {
           />
         </CardContent>
         <CardActions>
-          <Button size="small" fullWidth>What is this?</Button>
+            <Button size="small" fullWidth>What is this?</Button>
         </CardActions>
       </Card>
     </Grid>,

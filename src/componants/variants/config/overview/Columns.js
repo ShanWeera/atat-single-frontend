@@ -16,8 +16,8 @@ const VariantsConfigOverviewColumns = [
     },
   },
   {
-    name: 'conservation',
-    label: 'Conservation',
+    name: 'incidence',
+    label: 'Incidence',
     options: {
       filter: true,
       sort: false,

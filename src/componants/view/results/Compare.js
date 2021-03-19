@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 import {
   Container, Grid, Card, CardContent, Typography, CardActions, Button,
@@ -8,6 +8,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import VariantAnalysis from '../../variants/Analysis';
 import PositionDropdown from '../../position/Dropdown';
+import TutorialDialog from "../../tutorial/Dialog";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -42,7 +43,9 @@ export default function ViewResultsCompare(props) {
                 <PositionDropdown />
               </CardContent>
               <CardActions>
-                <Button size="small" fullWidth>What is this?</Button>
+                <TutorialDialog>
+                  <Button size="small" fullWidth>What is this?</Button>
+                </TutorialDialog>
               </CardActions>
             </Card>
           </Grid>
