@@ -50,7 +50,6 @@ export default function ViewResultsFloatButton() {
 
   const handleClickOpen = () => {
     setOpen(true);
-    console.log(open)
   }
 
   const handleClose = () => {
