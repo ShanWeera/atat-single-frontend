@@ -10,6 +10,7 @@ import Navigation from './componants/navigation/AppBar';
 import ViewResultsCompare from './componants/view/results/Compare';
 import ViewResultsMotifs from './componants/view/results/Motifs';
 import allReducers from './reducers';
+import ViewSubmit from "./componants/view/submit/Submit";
 
 require('bootstrap/dist/css/bootstrap.min.css');
 
@@ -22,6 +23,7 @@ ReactDOM.render(
       <Router>
         <Navigation />
         <Switch>
+            <Route exact path="/" component={ViewSubmit} />
           <Route exact path="/results/:id" component={ViewResultsCompare} />
           <Route exact path="/results/:id/motifs" component={ViewResultsMotifs} />
         </Switch>
