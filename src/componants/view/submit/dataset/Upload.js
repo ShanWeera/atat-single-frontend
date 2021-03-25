@@ -1,5 +1,17 @@
 import { makeStyles } from "@material-ui/core/styles";
-import {Avatar, List, ListItemAvatar, ListItemText, ListItem, Button, ButtonBase} from "@material-ui/core";
+import { DropzoneDialog } from "material-ui-dropzone";
+
+import {
+    Avatar,
+    List,
+    ListItemAvatar,
+    ListItemText,
+    ListItem,
+    Button,
+    ButtonBase,
+    Container,
+    Grid
+} from "@material-ui/core";
 import HelpOutlineSharpIcon from '@material-ui/icons/HelpOutlineSharp';
 
 const useStyles = makeStyles((theme) => ({
@@ -33,32 +45,40 @@ export default function ViewSubmitDatasetUpload() {
     const classes = useStyles();
 
     return [
-        <List className={classes.root}>
-            <ButtonBase focusRipple className={classes.buttonBase}>
-            <ListItem className={classes.listItem}>
-                <ListItemAvatar>
-                    <Avatar className={`${classes.avatar} ${classes.avatarUnknown}`}>
-                        <HelpOutlineSharpIcon />
-                    </Avatar>
-                </ListItemAvatar>
-                <ListItemText primary={"SOURCE SEQUENCES"} secondary={"Click to upload source sequence in FASTA format."}/>
-            </ListItem>
-            </ButtonBase>
-            <ButtonBase focusRipple className={classes.buttonBase}>
-            <ListItem className={classes.listItem}>
-                <ListItemAvatar>
-                    <Avatar className={`${classes.avatar} ${classes.avatarUnknown}`}>
-                        <HelpOutlineSharpIcon />
-                    </Avatar>
-                </ListItemAvatar>
-                <ListItemText primary={"RESERVOIR SEQUENCES"} secondary={"Click to upload reservoir sequence in FASTA format."}/>
-            </ListItem>
-            </ButtonBase>
-            <ListItem className={classes.listItem}>
-                <Button color={"primary"} component={'li'} fullWidth>
-                    Validate
-                </Button>
-            </ListItem>
-        </List>
+        <Container maxWidth={false}>
+            <Grid container alignItems={"center"}>
+                <Grid item xs={12} sm={12} lg={4}>
+                    <ButtonBase focusRipple className={classes.buttonBase}>
+                        <ListItem className={classes.listItem}>
+                            <ListItemAvatar>
+                                <Avatar className={`${classes.avatar} ${classes.avatarUnknown}`}>
+                                    <HelpOutlineSharpIcon />
+                                </Avatar>
+                            </ListItemAvatar>
+                            <ListItemText primary={"SOURCE SEQUENCES"} secondary={"Click to upload source sequence in FASTA format."}/>
+                        </ListItem>
+                    </ButtonBase>
+                </Grid>
+                <Grid item xs={12} sm={12} lg={4}>
+                    <ButtonBase focusRipple className={classes.buttonBase}>
+                        <ListItem className={classes.listItem}>
+                            <ListItemAvatar>
+                                <Avatar className={`${classes.avatar} ${classes.avatarUnknown}`}>
+                                    <HelpOutlineSharpIcon />
+                                </Avatar>
+                            </ListItemAvatar>
+                            <ListItemText primary={"RESERVOIR SEQUENCES"} secondary={"Click to upload reservoir sequence in FASTA format."}/>
+                        </ListItem>
+                    </ButtonBase>
+                </Grid>
+                <Grid item xs={12} sm={12} lg={4}>
+                    <ListItem className={classes.listItem}>
+                        <Button color={"primary"} component={'li'} fullWidth>
+                            Validate
+                        </Button>
+                    </ListItem>
+                </Grid>
+            </Grid>
+        </Container>
     ]
 }

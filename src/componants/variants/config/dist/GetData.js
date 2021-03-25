@@ -1,4 +1,4 @@
-const VariantsConfigDistGetData = (data: Array) => {
+const VariantsConfigDistGetData = (data) => {
     if (data === undefined) {
         return []
     }

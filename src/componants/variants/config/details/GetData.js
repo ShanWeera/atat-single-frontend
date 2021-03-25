@@ -1,4 +1,4 @@
-const VariantsConfigDetailsGetData = (variant: Object) => {
+const VariantsConfigDetailsGetData = (variant) => {
     if (variant === undefined || Object.keys(variant).length === 0) {
         return []
     }
