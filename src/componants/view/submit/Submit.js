@@ -27,9 +27,6 @@ export default function ViewSubmit() {
                     <CardContent>
                         <ViewSubmitStepper />
                     </CardContent>
-                    <CardActions>
-                        <Button size="small" fullWidth>Learn More</Button>
-                    </CardActions>
                 </Card>
             </Grid>
         </Container>
