@@ -1,6 +1,6 @@
 const setSourceDatasetFileReducer = (state = null, action) => {
     if (action.type === 'DATASET_FILE_SOURCE') {
-        return action.file[0];
+        return {name: action.name, sequences: action.sequences};
     }
 
     return state;
