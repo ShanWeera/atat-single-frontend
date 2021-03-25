@@ -5,7 +5,7 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import ViewSubmitDatasetUpload from "./Upload";
+import ViewSubmitDatasetUpload from "./upload/Upload";
 
 const useStyles = makeStyles((theme) => ({
     root: {
