@@ -22,9 +22,14 @@ export default function MotifsVariant(props) {
   const classes = useStyles();
 
   useEffect(() => {
-    let client;
     const { position } = props.selectedSwitch;
 
+    if (position == null) {
+      return
+    }
+
+    let client;
+    
     props.context === 'source' ? client = ApiEndpoints.sourcePositionVariants
       : client = ApiEndpoints.reservoirPositionVariants;
 
@@ -75,7 +80,7 @@ export default function MotifsVariant(props) {
           <VariantsDistribution
             name={props.context === 'source' ? 'Countries' : 'Sources'}
             data={variant === undefined ? [] : (props.context === 'source'
-              ? variant.country : variant.source)}
+              ? variant.country : variant.host)}
           />
         </CardContent>
         <CardActions>

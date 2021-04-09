@@ -27,6 +27,10 @@ export default function ViewResultsMotifs(props) {
     dispatch({ type: 'IS_RESULTS' }, []);
     dispatch({ type: 'RESULT_ID', id: jobid }, []);
 
+    if (jobid == null) {
+      return
+    }
+
     ApiEndpoints.allMotifSwitches(jobid).then((response) => {
       setSwitches(response.data.switches);
     }).catch((error) => {

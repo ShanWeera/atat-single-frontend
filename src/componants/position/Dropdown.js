@@ -13,6 +13,10 @@ export default function PositionDropdown() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    if (jobid == null) {
+      return
+    }
+
     ApiEndpoints.positionCount(jobid).then((response) => {
       setPositionCount(response.data);
     }).catch((error) => {

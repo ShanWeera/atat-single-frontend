@@ -1,11 +1,11 @@
 const VariantsConfigDetailsGetData = (variant) => {
-    if (variant === undefined || Object.keys(variant).length === 0) {
+    if (variant == null || Object.keys(variant).length === 0) {
         return []
     }
 
     let accession = variant.accession
     let country = variant.country
-    let source = variant.source
+    let source = variant.host
     let strain = variant.strain
 
     let elementCount = Math.max(accession.length, country.length, source.length, strain.length);

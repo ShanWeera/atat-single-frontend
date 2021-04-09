@@ -30,6 +30,10 @@ export default function VariantAnalysis(props) {
   const classes = useStyles();
 
   useEffect(() => {
+    if (jobid == null || selected_position == null || props.context == null) {
+      return
+    }
+
     let client;
     setContext(props.context);
 
@@ -103,7 +107,7 @@ export default function VariantAnalysis(props) {
           <VariantsDistribution
             name={context === 'source' ? 'Countries' : 'Sources'}
             data={selectedVariant === undefined ? [] : (context === 'source'
-              ? selectedVariant.country : selectedVariant.source)}
+              ? selectedVariant.country : selectedVariant.host)}
           />
         </CardContent>
         <CardActions>
