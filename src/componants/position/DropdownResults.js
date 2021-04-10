@@ -6,7 +6,7 @@ import { TextField } from '@material-ui/core';
 
 import ApiEndpoints from '../../api/Endpoints';
 
-export default function PositionDropdown() {
+export default function PositionDropdownResults() {
   const [positionCount, setPositionCount] = useState(0);
   const jobid = useSelector((state) => state.jobID);
   const selected_position = useSelector((state) => state.position);

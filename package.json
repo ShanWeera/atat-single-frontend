@@ -27,7 +27,8 @@
     "redux": "^4.0.5",
     "styled-components": "^5.2.1",
     "web-vitals": "^1.1.0",
-    "material-ui-dropzone": "^3.5.0"
+    "material-ui-dropzone": "^3.5.0",
+    "js-file-download": "^0.4.12"
   },
   "scripts": {
     "start": "react-scripts start",

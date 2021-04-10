@@ -7,7 +7,7 @@ import {
 import { makeStyles } from '@material-ui/core/styles';
 
 import VariantAnalysis from '../../variants/Analysis';
-import PositionDropdown from '../../position/Dropdown';
+import PositionDropdownResults from '../../position/DropdownResults';
 import TutorialDialog from "../../tutorial/Dialog";
 
 const useStyles = makeStyles((theme) => ({
@@ -40,7 +40,7 @@ export default function ViewResultsCompare(props) {
                 <Typography color="textSecondary">
                   Choose the k-mer position to view.
                 </Typography>
-                <PositionDropdown />
+                <PositionDropdownResults />
               </CardContent>
               <CardActions>
                 <TutorialDialog>

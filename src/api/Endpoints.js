@@ -1,15 +1,15 @@
 import { get } from './Base';
 
 const ApiEndpoints = {
-  index: (id) => get(`/info/${id}`),
-  results: (id) => get(`/results/${id}`),
-  groupedPosition: (id, position) => get(`/results/${id}/positions/${position}/grouped`),
-  sourcePosition: (id, position) => get(`/results/${id}/positions/${position}/source`),
-  reservoirPosition: (id, position) => get(`/results/${id}/positions/${position}/reservoir`),
-  positionCount: (id) => get(`/results/${id}/positions/count`),
-  allMotifSwitches: (id) => get(`/results/${id}/switches`),
-  sourcePositionVariants: (id, position) => get(`/results/${id}/positions/${position}/source/variants`),
-  reservoirPositionVariants: (id, position) => get(`/results/${id}/positions/${position}/reservoir/variants`),
+  index: (id, config={}) => get(`/info/${id}`, config),
+  results: (id, config={}) => get(`/results/${id}`, config),
+  groupedPosition: (id, position, config={}) => get(`/results/${id}/positions/${position}/grouped`, config),
+  sourcePosition: (id, position, config={}) => get(`/results/${id}/positions/${position}/source`, config),
+  reservoirPosition: (id, position, config={}) => get(`/results/${id}/positions/${position}/reservoir`, config),
+  positionCount: (id, config={}) => get(`/results/${id}/positions/count`, config),
+  allMotifSwitches: (id, config={}) => get(`/results/${id}/switches`, config),
+  sourcePositionVariants: (id, position, config={}) => get(`/results/${id}/positions/${position}/source/variants`, config),
+  reservoirPositionVariants: (id, position, config={}) => get(`/results/${id}/positions/${position}/reservoir/variants`, config),
 };
 
 export default ApiEndpoints;
