@@ -28,7 +28,7 @@ const lottieOptions = {
 };
 
 const useStyles = makeStyles((theme) => ({
-    root: {
+    list: {
         backgroundColor: theme.palette.background.paper,
         width: '100%',
         position: 'relative',
@@ -76,7 +76,7 @@ export default function ViewResultsWaiting(props) {
         }
 
         const delay = ms => new Promise(res => setTimeout(res, ms))
-        let backoff = 1000
+        let backoff = 3000
 
         async function checkStatus() {
             while (props.status !== 'FINISHED') {
@@ -100,7 +100,6 @@ export default function ViewResultsWaiting(props) {
                     }
                 ).catch(ex => console.log(ex))
 
-                backoff *= 2
                 await delay(backoff)
             }
         }
@@ -125,7 +124,7 @@ export default function ViewResultsWaiting(props) {
             </Grid>
             <Grid container spacing={16} direction="column" alignItems="center" justify="center"
                   className={classes.container}>
-                <List className={classes.root}>
+                <List className={classes.list}>
                     {logs.map((log, idx) => {
                         return [<ListItem key={log.hash} autoFocus={true} button>
                             <ListItemAvatar>
