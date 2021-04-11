@@ -10,6 +10,8 @@ const ApiEndpoints = {
   allMotifSwitches: (id, config={}) => get(`/results/${id}/switches`, config),
   sourcePositionVariants: (id, position, config={}) => get(`/results/${id}/positions/${position}/source/variants`, config),
   reservoirPositionVariants: (id, position, config={}) => get(`/results/${id}/positions/${position}/reservoir/variants`, config),
+  status: (id) => get(`/status/${id}`),
+  logs: (id) => get(`/log/${id}`)
 };
 
 export default ApiEndpoints;

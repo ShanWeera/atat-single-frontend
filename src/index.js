@@ -7,7 +7,7 @@ import { createStore } from 'redux';
 
 import reportWebVitals from './reportWebVitals';
 import Navigation from './componants/navigation/AppBar';
-import ViewResultsCompare from './componants/view/results/Compare';
+import ViewResultsSentry from './componants/view/results/Sentry';
 import ViewResultsMotifs from './componants/view/results/Motifs';
 import allReducers from './reducers';
 import ViewSubmit from "./componants/view/submit/Submit";
@@ -24,7 +24,7 @@ ReactDOM.render(
         <Navigation />
         <Switch>
             <Route exact path="/" component={ViewSubmit} />
-          <Route exact path="/results/:id" component={ViewResultsCompare} />
+          <Route exact path="/results/:id" component={ViewResultsSentry} />
           <Route exact path="/results/:id/motifs" component={ViewResultsMotifs} />
         </Switch>
       </Router>
