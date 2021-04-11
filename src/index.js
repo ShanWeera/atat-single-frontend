@@ -19,7 +19,6 @@ const store = createStore(allReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && wi
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      {store.subscribe(() => console.log(store.getState()))}
       <Router>
         <Navigation />
         <Switch>

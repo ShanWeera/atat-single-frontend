@@ -8,7 +8,7 @@ import StepButton from '@material-ui/core/StepButton';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import ViewSubmitDatasetAccordion from "./dataset/Accordion";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import ViewSubmitParameters from "./Parameters";
 import {Container, Grid} from "@material-ui/core";
 import ViewSubmitJob from "./Job";
@@ -62,6 +62,7 @@ export default function ViewSubmitStepper() {
     const reservoirFile = useSelector((state) => state.reservoir_file);
     const history = useHistory();
     const steps = getSteps();
+    const dispatch = useDispatch();
 
     const totalSteps = () => steps.length
     const completedSteps = () => Object.keys(completed).length
@@ -103,7 +104,11 @@ export default function ViewSubmitStepper() {
                 return;
             case 2:
                 ApiEndpoints.submit(sourceFile.sequences, reservoirFile.sequences, kmerLength, userEmail).then(
-                    response => history.push(`/results/${response.data}`)
+                    response => {
+                        const jobid = response.data
+                        dispatch({ type: 'RESULT_ID', id: jobid }, []);
+                        history.push(`/results/${jobid}`);
+                    }
                 )
                 return;
             default:

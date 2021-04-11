@@ -21,15 +21,17 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ViewResultsSentry(props) {
   const dispatch = useDispatch();
-  const jobid = props.match.params.id;
   const [jobStatus, setJobStatus] = useState('UNKNOWN')
+  const jobid = props.match.params.id;
 
   useEffect(() => {
+    if (jobid === null) {
+      return
+    }
+
     dispatch({ type: 'IS_RESULTS' }, []);
     dispatch({ type: 'RESULT_ID', id: jobid }, []);
-
-    ApiEndpoints.status(jobid).then(response => setJobStatus(response.data)).catch(ex => console.log(ex))
-  }, [jobid, dispatch]);
+  }, [dispatch, jobid]);
 
   const classes = useStyles();
 
