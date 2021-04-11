@@ -1,4 +1,4 @@
-import { get } from './Base';
+import { get, post } from './Base';
 
 const ApiEndpoints = {
   index: (id, config={}) => get(`/info/${id}`, config),
@@ -11,7 +11,13 @@ const ApiEndpoints = {
   sourcePositionVariants: (id, position, config={}) => get(`/results/${id}/positions/${position}/source/variants`, config),
   reservoirPositionVariants: (id, position, config={}) => get(`/results/${id}/positions/${position}/reservoir/variants`, config),
   status: (id) => get(`/status/${id}`),
-  logs: (id) => get(`/log/${id}`)
+  logs: (id) => get(`/log/${id}`),
+  submit: (source, reservoir, kmerLength, email) => post('/submit', {
+    email: email,
+    kmer_length: kmerLength,
+    source: source,
+    reservoir: reservoir
+  })
 };
 
 export default ApiEndpoints;

@@ -11,6 +11,9 @@ import ViewSubmitDatasetAccordion from "./dataset/Accordion";
 import {useSelector} from "react-redux";
 import ViewSubmitParameters from "./Parameters";
 import {Container, Grid} from "@material-ui/core";
+import ViewSubmitJob from "./Job";
+import ApiEndpoints from "../../../api/Endpoints";
+import {useHistory} from "react-router-dom";
 
 const getSteps = () => {
     return ['Select Datasets', 'Parameters', 'Submit']
@@ -22,6 +25,8 @@ const getStepContent = (step) => {
             return (<ViewSubmitDatasetAccordion />);
         case 1:
             return (<ViewSubmitParameters />);
+        case 2:
+            return (<ViewSubmitJob />);
         default:
             return null;
     }
@@ -51,7 +56,11 @@ export default function ViewSubmitStepper() {
     const [activeStep, setActiveStep] = useState(0);
     const [completed, setCompleted] = useState({});
     const uploadDatasetValidated = useSelector((state) => state.uploadDatasetValidated);
-
+    const userEmail = useSelector((state) => state.userEmail);
+    const kmerLength = useSelector((state) => state.kmerLength);
+    const sourceFile = useSelector((state) => state.source_file);
+    const reservoirFile = useSelector((state) => state.reservoir_file);
+    const history = useHistory();
     const steps = getSteps();
 
     const totalSteps = () => steps.length
@@ -76,7 +85,7 @@ export default function ViewSubmitStepper() {
 
     const handleComplete = () => {
         const newCompleted = completed;
-
+        console.log(completed)
         switch (activeStep) {
             case 0:
                 if (uploadDatasetValidated) {
@@ -85,14 +94,21 @@ export default function ViewSubmitStepper() {
                     handleNext();
                 }
                 return;
+            case 1:
+                if (userEmail !== null || kmerLength !==  null) {
+                    newCompleted[1] = true;
+                    setCompleted(newCompleted);
+                    handleNext();
+                }
+                return;
+            case 2:
+                ApiEndpoints.submit(sourceFile.sequences, reservoirFile.sequences, kmerLength, userEmail).then(
+                    response => history.push(`/results/${response.data}`)
+                )
+                return;
             default:
                 return;
         }
-    };
-
-    const handleReset = () => {
-        setActiveStep(0);
-        setCompleted({});
     };
 
     return [

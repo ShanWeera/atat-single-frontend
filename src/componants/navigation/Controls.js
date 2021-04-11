@@ -18,8 +18,10 @@ function NavigationControls() {
   const handleClick = (context) => {
     if (context === 'motifs') {
       history.push(`/results/${jobid}/motifs`);
-    } else {
+    } else if (context === 'compare') {
       history.push(`/results/${jobid}`);
+    } else {
+      history.push(`/`);
     }
   };
 
@@ -28,7 +30,10 @@ function NavigationControls() {
   return [
     <Router>
       <ButtonGroup size="medium" variant="text" fullWidth>
-        <Button onClick={() => handleClick('compare')} color="primary" className={classes.button}>
+        <Button onClick={() => handleClick('job')} color="primary" className={classes.button}>
+          New Job
+        </Button>
+        <Button onClick={() => handleClick('compare')} color="secondary" className={classes.button}>
           Compare
         </Button>
         <Button onClick={() => handleClick('motifs')} color="secondary" className={classes.button}>

@@ -1,5 +1,6 @@
 import {Container, Divider, Grid, MenuItem, Select, TextField, Typography} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
+import {useDispatch, useSelector} from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -12,6 +13,17 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ViewSubmitParameters() {
     const classes = useStyles();
+    const userEmail = useSelector((state) => state.userEmail);
+    const kmerLength = useSelector((state) => state.kmerLength);
+    const dispatch = useDispatch();
+
+    const changeKmerHandle = (event) => {
+        dispatch({ type: 'KMER_LEN_CHANGED', kmerLength: event.target.value})
+    }
+
+    const changeUserEmailHandle = (event) => {
+        dispatch({ type: 'USER_EMAIL_CHANGED', userEmail: event.target.value})
+    }
 
     return (
         <Container maxWidth={false}>
@@ -23,13 +35,14 @@ export default function ViewSubmitParameters() {
                     <Select
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
-                        value={"9"}
+                        value={kmerLength}
+                        onChange={changeKmerHandle}
                         fullWidth
                     >
-                        <MenuItem value={10}>9</MenuItem>
-                        <MenuItem value={20}>10</MenuItem>
-                        <MenuItem value={30}>11</MenuItem>
-                        <MenuItem value={30}>12</MenuItem>
+                        <MenuItem value={9}>9</MenuItem>
+                        <MenuItem value={10}>10</MenuItem>
+                        <MenuItem value={11}>11</MenuItem>
+                        <MenuItem value={12}>12</MenuItem>
                     </Select>
                 </Grid>
             </Grid>
@@ -38,7 +51,7 @@ export default function ViewSubmitParameters() {
                     <Typography variant={"button"}>E-Mail</Typography>
                 </Grid>
                 <Grid item xs={4} sm={4} lg={4}>
-                    <TextField id="standard-basic" fullWidth/>
+                    <TextField id="standard-basic" fullWidth onChange={changeUserEmailHandle} value={userEmail}/>
                 </Grid>
             </Grid>
         </Container>

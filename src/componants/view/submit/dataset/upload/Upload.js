@@ -4,7 +4,17 @@ import {useDispatch, useSelector} from "react-redux";
 
 import {makeStyles} from "@material-ui/core/styles";
 
-import {Avatar, Button, ButtonBase, Container, Grid, ListItem, ListItemAvatar, ListItemText} from "@material-ui/core";
+import {
+    Avatar,
+    Button,
+    ButtonBase,
+    Container,
+    Grid,
+    ListItem,
+    ListItemAvatar,
+    ListItemText,
+    Snackbar
+} from "@material-ui/core";
 
 import HelpOutlineSharpIcon from '@material-ui/icons/HelpOutlineSharp';
 import DoneIcon from '@material-ui/icons/Done';
@@ -46,7 +56,27 @@ export default function ViewSubmitDatasetUpload() {
     const sourceFile = useSelector((state) => state.source_file);
     const reservoirFile = useSelector((state) => state.reservoir_file);
     const uploadDatasetValidated = useSelector((state) => state.uploadDatasetValidated)
+    const [alertOpen, setAlertOpen] = useState(false)
+    const [alertMsg, setAlertMsg] = useState(null)
 
+    const handleAlertClose = (event, reason) => reason !== 'clickaway' ? setAlertOpen(false): null
+
+    const getRandomItemFromArray = (array) => {
+        const length = array.length;
+        const randomInteger = Math.floor(Math.random()*length)
+
+        return array[randomInteger]
+    }
+
+    const checkSequenceLengthEqual = (results) => {
+        console.log(results)
+        const totalResultsCount = results.length;
+        const sample = getRandomItemFromArray(results);
+
+        const validResultsCount = results.filter(result => result.sequence === sample.sequence).length;
+
+        return totalResultsCount === validResultsCount;
+    }
     const Validate = () => {
         if (!sourceFile || !reservoirFile)  {
             return;
@@ -55,6 +85,7 @@ export default function ViewSubmitDatasetUpload() {
         const regexHeader = />([^\n\r]*)/gm;
         const regexAll = />.*\S.*[^>]*/gm;
         const metadata = /[^|]+\S/gus;
+        const residues = /[GALMFWKQESPVICYHRNDT-]/gm;
 
         const sourceSequences = sourceFile.sequences.match(regexAll);
         const reservoirSequences = reservoirFile.sequences.match(regexAll);
@@ -63,19 +94,40 @@ export default function ViewSubmitDatasetUpload() {
         const validationResults = allSequences.map((item) => {
             const header = item.match(regexHeader);
             const metadataCount = header[0].match(metadata).length;
+            const sequence = item.split("\n").slice(1).join("\n")
+            const sequenceLength = sequence.match(residues).length
 
-            const sequence = item.replace(header[0])
-            const sequenceLength = sequence.length
-
-            return {metadata: metadataCount, sequence: sequenceLength}
+            return {header: header[0], metadata: metadataCount, sequence: sequenceLength}
         });
 
-        const status = validationResults.every((val, i, arr) => val.metadata === arr[0].metadata && val.sequence === arr[0].sequence);
+        if (validationResults.some(result => result.metadata !== 4)) {
+            setAlertMsg('The FASTA header is invalid. Valid format is: Accession|Strain|Host|Country')
+            setAlertOpen(true)
+            return
+        }
 
-        status ? dispatch({ type: 'UPLOAD_DATASET_VALIDATED', status: true}, []) : dispatch({ type: 'UPLOAD_DATASET_VALIDATED', status: false}, []);
+        if (!checkSequenceLengthEqual(validationResults)) {
+            dispatch({ type: 'UPLOAD_DATASET_VALIDATED', status: false}, [])
+            setAlertMsg('The number of residues is not equal. Make sure to co-align both datasets.')
+            setAlertOpen(true)
+            return
+        }
+
+        dispatch({ type: 'UPLOAD_DATASET_VALIDATED', status: true}, [])
+        dispatch({ type: 'RESIDUE_COUNT', count: validationResults[0].sequence}, [])
+        dispatch({ type: 'SEQUENCES_COUNT', count: validationResults.length}, [])
     }
 
     return [
+        <Snackbar
+            anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
+            }}
+            open={alertOpen}
+            autoHideDuration={6000}
+            onClose={handleAlertClose}
+            message={alertMsg} />,
         <ViewSubmitDatasetUploadDialog context={context} open={open} setOpen={setOpen} />,
         <Container maxWidth={false}>
             <Grid container alignItems={"center"}>
