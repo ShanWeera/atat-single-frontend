@@ -1,4 +1,4 @@
-const setUserEmailReducer = (state = '', action) => {
+const setUserEmailReducer = (state = null, action) => {
     if (action.type === 'USER_EMAIL_CHANGED') {
         return action.userEmail;
     }

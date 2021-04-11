@@ -86,7 +86,6 @@ export default function ViewSubmitStepper() {
 
     const handleComplete = () => {
         const newCompleted = completed;
-        console.log(completed)
         switch (activeStep) {
             case 0:
                 if (uploadDatasetValidated) {
@@ -96,7 +95,8 @@ export default function ViewSubmitStepper() {
                 }
                 return;
             case 1:
-                if (userEmail !== null || kmerLength !==  null) {
+                if (userEmail !== null && kmerLength !==  null) {
+                    console.log(userEmail)
                     newCompleted[1] = true;
                     setCompleted(newCompleted);
                     handleNext();
