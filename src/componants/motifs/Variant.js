@@ -22,11 +22,12 @@ export default function MotifsVariant(props) {
   const classes = useStyles();
 
   useEffect(() => {
-    const { position } = props.selectedSwitch;
-
-    if (position == null) {
+    if (props.selectedSwitch == null) {
+      setVariant([])
       return
     }
+
+    const { position } = props.selectedSwitch;
 
     let client;
     
