@@ -72,7 +72,7 @@ export default function ViewResultsWaiting(props) {
     const jobid = useSelector((state) => state.jobID);
 
     useEffect(() => {
-        if (jobid === null) {
+        if (jobid === null || props.status === 'FINISHED') {
             return
         }
 
@@ -106,9 +106,7 @@ export default function ViewResultsWaiting(props) {
             }
         }
 
-        if (props.status !== 'FINISHED') {
-            checkStatus().then(() => console.log(props.status))
-        }
+        checkStatus().then(() => console.log(props.status))
 
     }, [jobid])
 
