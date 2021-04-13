@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import ApiEndpoints from "../../../api/Endpoints";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import { green } from '@material-ui/core/colors';
 import {
     Avatar,
@@ -67,6 +67,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ViewResultsWaiting(props) {
     const classes = useStyles();
+    const dispatch = useDispatch();
     const [logs, setLogs] = useState([])
     const jobid = useSelector((state) => state.jobID);
 
