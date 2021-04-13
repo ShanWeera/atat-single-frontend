@@ -106,7 +106,9 @@ export default function ViewResultsWaiting(props) {
             }
         }
 
-        checkStatus().then(() => console.log(props.status))
+        if (props.status !== 'FINISHED') {
+            checkStatus().then(() => console.log(props.status))
+        }
 
     }, [jobid])
 
