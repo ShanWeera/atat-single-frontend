@@ -85,6 +85,7 @@ export default function ViewResultsWaiting(props) {
                         const newStatus = response.data
 
                         if (newStatus === 'FINISHED') {
+                            dispatch({ type: 'IS_RESULTS', id: jobid }, []);
                             props.setJobStatus(newStatus)
                         } else if (newStatus === 'RUNNING') {
                             ApiEndpoints.logs(jobid).then((response) =>{
