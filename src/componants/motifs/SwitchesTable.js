@@ -10,8 +10,6 @@ const options = { ...MotifsConfigTableOptions };
 export default function MotifsSwitchesTable(props) {
   options.onRowSelectionChange = (currentRowsSelected, allRowsSelected, rowsSelected) => {
     const selectedIndex = allRowsSelected[0] ? allRowsSelected[0].dataIndex : null;
-
-
     props.setSelectedSwitch(props.switches[selectedIndex]);
   };
 

@@ -85,7 +85,7 @@ export default function ViewSubmitDatasetUpload() {
         const regexHeader = />([^\n\r]*)/gm;
         const regexAll = />.*\S.*[^>]*/gm;
         const metadata = /[^|]+\S/gus;
-        const residues = /[GALMFWKQESPVICYHRNDT-]/gm;
+        const residues = /[GALMFWKQESPVICYHRNDTX-]/gm;
 
         const sourceSequences = sourceFile.sequences.match(regexAll);
         const reservoirSequences = reservoirFile.sequences.match(regexAll);

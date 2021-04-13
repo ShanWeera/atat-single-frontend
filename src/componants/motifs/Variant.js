@@ -42,6 +42,7 @@ export default function MotifsVariant(props) {
       console.log(error);
     });
   }, [jobid, props.context, props.selectedSwitch]);
+
   return [
     <Grid item lg={12} xm={12} xs={12}>
       <Card elevation={2}>

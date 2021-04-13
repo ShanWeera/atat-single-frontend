@@ -28,8 +28,7 @@ export default function ViewResultsSentry(props) {
     if (jobid === null) {
       return
     }
-
-    dispatch({ type: 'IS_RESULTS' }, []);
+    
     dispatch({ type: 'RESULT_ID', id: jobid }, []);
   }, [dispatch, jobid]);
 
