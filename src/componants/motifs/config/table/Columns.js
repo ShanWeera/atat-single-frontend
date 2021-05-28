@@ -3,7 +3,7 @@ const MotifsConfigTableColumns = [
     name: 'position',
     label: 'Position',
     options: {
-      filter: true,
+      filter: false,
       sort: true,
     },
   },
@@ -11,7 +11,7 @@ const MotifsConfigTableColumns = [
     name: 'sequence',
     label: 'Sequence',
     options: {
-      filter: true,
+      filter: false,
       sort: true,
     },
   },

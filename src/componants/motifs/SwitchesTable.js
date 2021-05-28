@@ -13,6 +13,8 @@ export default function MotifsSwitchesTable(props) {
     props.setSelectedSwitch(props.switches[selectedIndex]);
   };
 
+  options.filter = true;
+
   return [
     <MUIDataTable
       columns={MotifsConfigTableColumns}

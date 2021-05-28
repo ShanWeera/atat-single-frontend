@@ -1,5 +1,5 @@
 const MotifsConfigTableOptions = {
-  filterType: 'checkbox',
+  filterType: 'multiselect',
   elevation: 0,
   filter: false,
   search: false,
